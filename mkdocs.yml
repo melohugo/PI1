@@ -8,6 +8,8 @@ nav:
     - TAP: planejamento/tap.md
     - EAP: planejamento/eap.md
     - Cronograma: planejamento/cronograma.md
+    - SWOT: planejamento/swot.md
+    - Requisitos: planejamento/requisitos.md
 
 theme:
   name: material
