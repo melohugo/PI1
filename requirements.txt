@@ -28,4 +28,5 @@ six==1.17.0
 urllib3==2.4.0
 watchdog==6.0.0
 pytest==8.4.0
+pytest-cov
 coverage
