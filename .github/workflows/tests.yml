@@ -26,11 +26,33 @@ jobs:
         pip install pytest-cov
 
     - name: Run tests with pytest and coverage
+      id: pytest
       run: |
-        pytest -vv --cov=source tests/
+        pytest -vv --cov=source --cov-fail-under=90 tests/
 
     - name: Upload coverage report
       uses: actions/upload-artifact@v4
       with:
         name: coverage-report
         path: .coverage
+
+    - name: Comment on PR
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const coverage = require('fs').readFileSync('.coverage', 'utf8');
+          const coveragePercentage = parseFloat(coverage.match(/TOTAL.+?(\d+\.\d+)%/)[1]);
+          const message = `## 🚀 Test Coverage Report\n\n`;
+          message += `| Metric | Value |\n|--------|-------|\n| Coverage | ${coveragePercentage}% |\n\n`;
+          if (coveragePercentage < 90) {
+            message += '⚠️ **Warning:** Coverage is below 90%. Please add more tests.';
+          } else {
+            message += '✅ **Success:** Coverage is above 90%.';
+          }
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: message
+          });
