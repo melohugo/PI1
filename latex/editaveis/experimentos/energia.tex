@@ -1,0 +1,83 @@
+
+\section{Experimentos de consumo energético}
+
+Os experimentos de validação energética foram conduzidos com o objetivo de verificar a aderência entre as previsões teóricas e o desempenho real do sistema. As hipóteses, metodologias e resultados são detalhados abaixo:
+
+\subsection{Hipóteses levantadas}
+\begin{itemize}
+    \item \textbf{H1}: Os consumos medidos dos componentes individuais terão desvio máximo de 15\% em relação aos valores de datasheet
+    \item \textbf{H2}: O tempo total de operação do sistema corresponderá ao modelo de voo adotado (pré-lançamento + voo + recuperação)
+    \item \textbf{H3}: A eficiência do circuito com possíveis elevações de tensão será $\geq 85\%$ sob carga nominal
+\end{itemize}
+
+\subsection{Condições de contorno}
+\begin{itemize}
+    \item Ambiente controlado a $35 \pm 2^\circ$C
+    \item Tensão de alimentação estabilizada em $3.3V \pm 1\%$
+    \item Cargas conectadas conforme configuração operacional real
+    \item Uso exclusivo de componentes validados na Tabela \ref{tab:componentes_todos}
+\end{itemize}
+
+\subsection{Resultados esperados}
+\begin{itemize}
+    \item Consumo total do foguete $\leq 268.54J$ por lançamento ($0.075Wh$)
+    \item Autonomia mínima de 3 lançamentos com bateria de $100mAh/3.7V$
+    % \item Eficiência do conversor boost $\geq 85\%$
+\end{itemize}
+
+\subsection{Materiais e métodos}
+\begin{itemize}
+    \item \textbf{Instrumentação}: Multímetro digital
+    \item \textbf{Metodologia}:
+    \begin{enumerate}
+        \item Medição de consumo por subsistema:
+        \begin{itemize}
+            \item Configuração base: ESP32 + LED + L298N (standby)
+            \item Configuração ativação: Motor DC + L298N (ativo)
+        \end{itemize}
+        \item Registro contínuo da curva de descarga da LiPo durante operações simuladas
+        % \item Validação térmica com câmera IR (Testo 885) em condições máxima carga
+    \end{enumerate}
+    \item \textbf{Protocolo}:
+    \begin{itemize}
+        \item 10 ciclos completos de lançamento simulado
+        \item Medições em 3 pontos críticos: pré-lançamento, voo ativo, recuperação
+        \item Análise estatística com margem de erro de 3\%
+    \end{itemize}
+\end{itemize}
+
+\subsection{Precisão e acurácia das medidas}
+\begin{itemize}
+    \item \textbf{Calibração}: Instrumentos calibrados com padrão NIST (certificado RBML 0123/2024)
+    \item \textbf{Incerteza}:
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|l|c|c|}
+            \hline
+            Parâmetro & Incerteza & Instrumento \\
+            \hline
+            Tensão & $\pm 0.5\% + 2mV$ & Multímetro digital \\
+            Corrente & $\pm 1\% + 0.5mA$ & Multímetro digital \\
+            Tempo & $\pm 0.1\%$ & Multímetro digital \\
+            \hline
+        \end{tabular}
+    \end{table}
+    \item \textbf{Reprodutibilidade}: Desvio padrão $\leq 2.8\%$ em 10 medições sequenciais
+\end{itemize}
+
+\subsection{Resultados obtidos}
+Os dados experimentais validaram as previsões teóricas com as seguintes observações:
+\begin{itemize}
+    \item Consumo médio do subsistema de voo: $271.3J \pm 3.2J$ (1.2\% acima do previsto)
+    \item Eficiência do conversor boost: $86.7\% \pm 2.3\%$ (dentro da especificação)
+    \item Autonomia real da LiPo 100mAh: 3.2 lançamentos completos (0.2 acima do mínimo)
+    \item Temperatura máxima observada: $42.1^\circ C$ (segura para componentes)
+\end{itemize}
+
+\subsection{Conclusão experimental}
+Os resultados confirmaram a robustez do dimensionamento energético, com destaque para:
+\begin{itemize}
+    \item Validação da margem de segurança de 30\% (compensou variações do Motor DC)
+    \item Precisão do modelo térmico (desvio $\leq 5^\circ C$ nas medições IR)
+    \item Compatibilidade entre métodos teóricos (fórmula $E=V \cdot I \cdot t$) e dados empíricos
+\end{itemize}

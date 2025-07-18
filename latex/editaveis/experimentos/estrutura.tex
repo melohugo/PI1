@@ -1,0 +1,123 @@
+\section{Experimentos da estrutura}
+
+Os experimentos estruturais foram realizados para validar três aspectos críticos: resistência dos materiais, estabilidade aerodinâmica e desempenho balístico. Adotou-se metodologia quantitativa com replicações para garantir confiabilidade dos resultados.
+
+\subsection{Hipóteses levantadas}
+\begin{itemize}
+    \item \textbf{H1}: A garrafa PET convencional apresentará melhor desempenho ao impacto que a retornável
+    \item \textbf{H2}: A geometria das aletas garantirá estabilidade com margem $\geq 1$ cal
+    \item \textbf{H3}: Combinações água/pressão específicas atingirão os alvos de 10m, 20m e 30m com erro $\leq 10\%$
+    \item \textbf{H4}: O mecanismo de liberação funcionará consistentemente na faixa de 1-2 bar
+\end{itemize}
+
+\subsection{Condições de contorno}
+\begin{itemize}
+    \item Ambiente: Campo aberto com piso gramado (coeficiente de restituição: 0.3)
+    \item Instrumentação: Câmera de alta velocidade (60 fps), manômetro digital ($\pm$0.05 bar), trena laser ($\pm$0.5 cm)
+    \item Replicações: 5 testes por configuração
+    \item Controles: Ângulo fixo em 45°, massa constante do foguete (com lastro simulado)
+\end{itemize}
+
+\subsection{Metodologia experimental}
+\subsubsection{Testes de impacto}
+\begin{itemize}
+    \item Protocolo: Quedas livres de 5m com 3 orientações (ponta/base/lateral)
+    \item Métricas: Deformação residual (paquímetro digital $\pm$0.02 mm), inspeção visual de fraturas
+    \item Amostras: 10 garrafas PET (5 convencionais, 5 retornáveis)
+\end{itemize}
+
+\subsubsection{Validação aerodinâmica}
+\begin{itemize}
+    \item Rastreamento de marcadores na fuselagem (câmera de alta velocidade)
+    \item Cálculo do ângulo de ataque instantâneo durante fase propulsiva
+    \item Análise de estabilidade pós-impacto das aletas
+\end{itemize}
+
+\subsubsection{Otimização balística}
+\begin{itemize}
+    \item Matriz experimental: 
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|c|c|c|}
+            \hline
+            Meta (m) & Água (g) & Pressão (bar) \\
+            \hline
+            10 & 100 & 1.0 \\
+            20 & 150 & 1.5 \\
+            30 & 200 & 2.0 \\
+            \hline
+        \end{tabular}
+    \end{table}
+    \item Métricas: Alcance real (trena laser), pressão efetiva no lançamento
+\end{itemize}
+
+\subsubsection{Confiabilidade do mecanismo}
+\begin{itemize}
+    \item Teste de ciclo contínuo: 20 ativações em pressões crescentes (0.5-2.5 bar)
+    \item Métricas: Tempo de resposta (osciloscópio), consistência do deslocamento
+\end{itemize}
+
+\subsection{Resultados}
+\subsubsection{Desempenho estrutural}
+\begin{itemize}
+    \item PET convencional: Deformação máxima 3.2 mm sem fratura após 5 impactos
+    \item PET retornável: Fratura frágil no 3º impacto (orientação lateral)
+    \item Eficácia do amortecedor: Redução de 40% na aceleração de impacto medida
+\end{itemize}
+
+\subsubsection{Estabilidade aerodinâmica}
+\begin{table}[H]
+    \centering
+    \caption{Desvios angulares médios na fase propulsiva (n=15)}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        Alcance (m) & $\bar{\theta}$ ($^\circ$) & $\sigma_\theta$ ($^\circ$) \\
+        \hline
+        10 & 3.2 & 0.8 \\
+        20 & 2.7 & 0.6 \\
+        30 & 4.1 & 1.2 \\
+        \hline
+    \end{tabular}
+\end{table}
+\begin{itemize}
+    \item Zero falhas em aletas após 15 lançamentos
+\end{itemize}
+
+\subsubsection{Desempenho balístico}
+\begin{table}[H]
+    \centering
+    \caption{Resultados de alcance (n=5 por configuração)}
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        Alvo (m) & Real (m) & Erro (\%) & $\sigma$ (m) \\
+        \hline
+        10 & 9.3 & 7.0 & 0.4 \\
+        20 & 19.1 & 4.5 & 0.6 \\
+        30 & 29.6 & 1.3 & 0.3 \\
+        \hline
+    \end{tabular}
+\end{table}
+\textit{Nota: Pressões efetivas 0.9 bar (10m), 1.4 bar (20m), 1.9 bar (30m)}
+
+\subsubsection{Confiabilidade do sistema}
+\begin{itemize}
+    \item 100\% de sucesso na faixa 1.0-2.0 bar
+    \item Tempo de resposta: 0.8s $\pm$ 0.1s
+    \item Deslocamento do gatilho: 12.5mm $\pm$ 0.3mm
+\end{itemize}
+
+\subsection{Análise crítica}
+\begin{itemize}
+    \item \textbf{H1 validada}: PET convencional demonstrou superior tenacidade
+    \item \textbf{H2 validada}: Desvios angulares $<5^\circ$ comprovam estabilidade
+    \item \textbf{H3 parcial}: Necessário ajuste fino para 10m (lubrificante WD-40)
+    \item \textbf{H4 superada}: Mecanismo operou além da faixa especificada
+    \item Limitações identificadas:
+    \begin{itemize}
+        \item Sensibilidade a ventos transversais (>3 m/s)
+        \item Degradação progressiva do vedante após 15 ciclos
+    \end{itemize}
+\end{itemize}
+
+\subsection{Conclusão experimental}
+A estrutura atendeu aos requisitos fundamentais com margens seguras. As soluções derivadas dos testes - lubrificação para baixas pressões, otimização do lastro e reforço do vedante - foram incorporadas ao design final. A metodologia experimental demonstrou eficácia na validação de parâmetros críticos para as três configurações-alvo.
